@@ -21,7 +21,7 @@ build-type:          Simple
 cabal-version:       >=1.10
 
 library
-  exposed-modules:     Data.SpaceFillingCurve.Hilbert.Integer,
+  exposed-modules:     Data.SpaceFillingCurve.Hilbert.Integer
                        Data.SpaceFillingCurve.Hilbert.Integer.Internal
   build-depends:       base        >= 4.8     && < 4.9
   hs-source-dirs:      src
@@ -31,6 +31,7 @@ test-suite property-tests
   type:                exitcode-stdio-1.0
   hs-source-dirs:      test, src
   main-is:             TestSuite.hs
+  other-modules:       PropertyTests
   build-depends:       base        >= 4.8     && < 4.9,
                        QuickCheck  >= 2.8.0   && < 2.9,
                        integer-gmp >= 1.0.0.0 && < 1.1

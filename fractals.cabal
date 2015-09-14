@@ -21,9 +21,11 @@ build-type:          Simple
 cabal-version:       >=1.10
 
 library
+  ghc-options:         -O2 -threaded "-with-rtsopts=-N"
   exposed-modules:     Data.SpaceFillingCurve.Hilbert.Integer
                        Data.SpaceFillingCurve.Hilbert.Integer.Internal
-  build-depends:       base        >= 4.8     && < 4.9
+  build-depends:       base        >= 4.8     && < 4.9,
+                       QuickCheck  >= 2.8.0   && < 2.9
   hs-source-dirs:      src
   default-language:    Haskell2010
 

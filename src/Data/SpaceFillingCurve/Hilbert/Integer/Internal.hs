@@ -51,7 +51,8 @@ import qualified Data.Foldable as F
 
 data Trip a b c = Trip !a !b !c
 
-{-# SPECIALIZE hilbert :: Int -> [Word8] -> Integer #-}
+{-# INLINABLE hilbert #-}
+{-# SPECIALIZE hilbert :: Int -> [Integer] -> Integer #-}
 hilbert :: (Bits a, Bits b, Num b, Foldable f) => Int -> f a -> b
 hilbert precision ps = hilbertIndex
   where (Trip _ _  hilbertIndex) =
@@ -72,7 +73,8 @@ hilbert precision ps = hilbertIndex
 -- Hilbert index of the output point, returns a list of values representing
 -- the point in Cartesian space.
 
-{-# SPECIALIZE hilbertInverse :: Int -> Int -> Integer -> [Word8] #-}
+{-# INLINABLE hilbertInverse #-}
+{-# SPECIALIZE hilbertInverse :: Int -> Int -> Integer -> [Integer] #-}
 hilbertInverse :: (Num a, Bits a, Bits b) => Int -> Int -> a -> [b]
 hilbertInverse precision n hilbertIndex = points
   where (Trip _ _ points) = V.foldl' step start (V.fromList [precision-1, precision-2..0])

@@ -25,7 +25,8 @@ library
   exposed-modules:     Data.SpaceFillingCurve.Hilbert.Integer
                        Data.SpaceFillingCurve.Hilbert.Integer.Internal
   build-depends:       base        >= 4.8     && < 4.9,
-                       QuickCheck  >= 2.8.0   && < 2.9
+                       QuickCheck  >= 2.8.0   && < 2.9,
+                       vector      >= 0.10
   hs-source-dirs:      src
   default-language:    Haskell2010
 
@@ -36,5 +37,6 @@ test-suite property-tests
   other-modules:       PropertyTests
   build-depends:       base        >= 4.8     && < 4.9,
                        QuickCheck  >= 2.8.0   && < 2.9,
-                       integer-gmp >= 1.0.0.0 && < 1.1
+                       integer-gmp >= 1.0.0.0 && < 1.1,
+                       vector      >= 0.10
   default-language:    Haskell2010
